@@ -1,0 +1,7 @@
+For this assignment, I started off by transferring all my files into one Visual Studio project, and then started to link the previous
+three programming assignments together. For PA1, I utilized JSONP because it was a cross domain request, and tried to display the player stats
+below the search bar. I modified my result.php code from PA1 to have it display a JSON array of the player's data. Afterwards, I incorporated my 
+query suggestions by utilizing jQuery Autocomplete and inserting my trie results into array. My searches yield the correct suggestions, but for some reason, 
+the results aren't aligned right below my search bar. They appear on the right-most edge of the page, but the suggestions are still visible. 
+I debugged the trie suggestions to ensure that it was returning the correct results. For the monetization part, I placed my Qadabra ad at the bottom of the page.
+I wrote my code using C# best practices, and I published my Visual Studio project onto Azure.

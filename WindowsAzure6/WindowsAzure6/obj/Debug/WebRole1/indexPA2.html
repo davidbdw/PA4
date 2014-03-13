@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        function testJson() {
+            var word = $("#word").val();
+            if (word.length == 0) {
+                $("#result").empty();
+                return;
+            }
+            $.ajax({
+                url: "WebServicePA2.asmx/searchInTrie",
+                type: "POST",
+                data: "{userInput:'" + word + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    $("#result").empty();
+                    for (var i = 0; i < msg.d.length; i++) {
+                        $("#result").append(msg.d[i] + "<br/>");
+                    }
+                },
+                error: function (msg) {
+                    $("#result").html(JSON.stringify(msg));
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <input id="word" name="text" onkeyup="testJson()" />
+    <input type="submit" onclick="testJson()" />
+    <div id="result"></div>
+
+</body>
+</html>
